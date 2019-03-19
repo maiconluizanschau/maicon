@@ -22,31 +22,31 @@ QUESTÕES
 1. Escreva um programa que imprima números de 1 a 100. Mas, para múltiplos de 3 imprima
 “Fizz” em vez do número e para múltiplos de 5 imprima “Buzz”. Para números múltiplos
 de ambos (3 e 5), imprima “FizzBuzz”.
+
 2. Refatore o código abaixo, fazendo as alterações que julgar necessário.
-1. <?
-2.
-3. if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
-4. header("Location: http://www.google.com");
-5. exit();
-6. } elseif (isset($_COOKIE['Loggedin']) && $_COOKIE['Loggedin'] == true) {
-7. header("Location: http://www.google.com");
-8. exit();
-9. }
-3. Refatore o código abaixo, fazendo as alterações que julgar necessário.
-1. <?php
-2.
-3. class MyUserClass
-4. {
-5. public function getUserList()
-6. {
-7. $dbconn = new DatabaseConnection('localhost','user','password');
-8. $results = $dbconn->query('select name from user');
-9.
-10. sort($results);
-11.
-12. return $results;
-13. }
-14. }
+<?
+ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
+ header("Location: http://www.google.com");
+ exit();
+ } elseif (isset($_COOKIE['Loggedin']) && $_COOKIE['Loggedin'] == true) {
+ header("Location: http://www.google.com");
+ exit();
+ }
+ 
+3. Refatore o código abaixo, fazendo as alterações que julgar necessário. <?php
+
+ class MyUserClass
+ {
+ public function getUserList()
+ {
+ $dbconn = new DatabaseConnection('localhost','user','password');
+ $results = $dbconn->query('select name from user');
+
+ sort($results);
+
+ return $results;
+ }
+ }
 4. Desenvolva uma API Rest para um sistema gerenciador de tarefas
 (inclusão/alteração/exclusão). As tarefas consistem em título e descrição, ordenadas por
 prioridade.
