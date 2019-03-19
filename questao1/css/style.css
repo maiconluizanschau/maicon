@@ -1,0 +1,15 @@
+body{
+    margin-bottom: 40px;
+}
+.container.numbers {
+    margin-top: 30px;
+    margin-bottom: 70px;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background: #EEE;
+    padding-top: 10px;
+}

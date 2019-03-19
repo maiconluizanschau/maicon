@@ -1,0 +1,98 @@
+<html ng-app="controleTarefas">
+<head>
+	<meta charset="utf-8">
+	<title>Gerenciador de Tarefas- Avaliação Analista</title>
+	<link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+	<link rel="stylesheet" href="assets/font-awesome/css/font-awesome.min.css">
+	<script src="assets/js/angular.min.js"></script>
+	<script src="assets/js/jquery.js"></script>
+	<script src="assets/js/bootstrap.min.js"></script>
+	<script src="assets/js/Sortable.js"></script>
+	<script src="assets/js/ng-sortable.js"></script>
+	<script src="assets/js/app.js"></script>
+</head>
+<body ng-controller="controleTarefasCtrl">
+	<div class="panel panel-info">
+		<div class="panel-heading">
+		    <h3 class="panel-title">{{app}}</h3>
+		</div>
+		<div class="panel-body">
+			<!-- Modal cadastrar tarefa-->
+			<div class="modal fade" id="addTarefa" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+				<div class="modal-dialog" role="document">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+							<h4 class="modal-title" id="myModalLabel">Adicionar Tarefa</h4>
+						</div>
+						<div class="modal-body">
+							<input class="form-control" type="text" ng-model="tarefa.title_task" placeholder="Titulo da Tarefa"/>
+							<input class="form-control" type="text" ng-model="tarefa.description" placeholder="Descricao da Tarefa"/>
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-default" ng-click="restScope()" data-dismiss="modal">Fechar</button>
+							<button class="btn btn-primary" ng-disabled="!tarefa.title_task || !tarefa.description" ng-click="adicionarTarefa(tarefa)">Adicionar</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- Fim do modal cadastrar tarefa-->
+
+			<!-- Modal editar tarefa-->
+			<div class="modal fade" id="editTarefa" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+				<div class="modal-dialog" role="document">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+							<h4 class="modal-title" id="myModalLabel">Editar Tarefa</h4>
+						</div>
+						<div class="modal-body">
+							<input type="hidden" ng-model="tarefa.id_task">
+							<input class="form-control" placeholder="{{editar[0].title_task}}" type="text" ng-model="editar[0].title_task"/>
+							<input class="form-control" placeholder="{{editar[0].description}}" type="text" ng-model="editar[0].description"/>
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-default" ng-click="fecharResetarEdit()">Fechar</button>
+							<button class="btn btn-primary" ng-click="editarTarefa(editar)">Salvar edição</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- Fim do modal editar tarefa-->
+
+			<!-- Botão cadastrar novas tarefas-->
+			<button type="button" class="btn btn-primary btn-block" data-toggle="modal" data-target="#addTarefa" ><i class="fa fa-plus fa-fw fa-lg"></i>Nova Tarefa</button>
+
+			<!-- Botão excluir tarefas-->
+			<button class="btn btn-danger btn-block" ng-click="apagarTarefas(tarefas)"><i class="fa fa-trash fa-fw fa-lg"></i>Excluir Selecionadas</button><br>
+
+			<!-- Painel com listagem das tarefas -->
+			<div class="panel panel-danger">
+			  	<div class="panel-heading">
+			    	<h3 class="panel-title">Tarefas</h3>
+			 	</div>
+		  	 	<div class="panel-body">
+					<!-- Angular ng-sortable para drag and drop e reordenação -->
+					<div ng-sortable="{animation:250}" class="list-group">
+			        	<div class="list-group-item tarefas" ng-class="{'selecionado negrito' : tarefa.selecionado}"
+			        	ng-repeat="tarefa in tarefas">
+			        		<div class="acoes">
+			        			<a href="#" ng-click="edit(tarefa)" data-toggle="modal" data-target="#editTarefa"><i class="fa fa-edit fa-fw"></i>Editar</a>
+			        		</div>
+							<span ng-mouseleave="sync(tarefas)"><i class="fa fa-bars fa-fw fa-2x"></i></span>
+				            <ul class="lista">
+								&nbsp;&nbsp;&nbsp;<input type="checkbox" ng-model="tarefa.selecionado" />
+								<li class="item-lista">
+			        				&nbsp;<h4>{{tarefa.title_task}}</h4>
+			        			</li><br>
+								<li><p>{{tarefa.description}}</p></li>
+							</ul>
+				        </div>
+				    </div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
