@@ -32,7 +32,7 @@ de ambos (3 e 5), imprima “FizzBuzz”.
  header("Location: http://www.google.com");
  exit();
  }
- 
+ <br>
 3. Refatore o código abaixo, fazendo as alterações que julgar necessário. <?php
 class MyUserClass
  {
@@ -46,7 +46,7 @@ class MyUserClass
  return $results;
  }
  }
- 
+ <br>
 4. Desenvolva uma API Rest para um sistema gerenciador de tarefas (inclusão/alteração/exclusão). As tarefas consistem em título e descrição, ordenadas por prioridade.
 Desenvolver utilizando:
 • Linguagem PHP (ou framework CakePHP);
