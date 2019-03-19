@@ -24,6 +24,7 @@ QUESTÕES
 de ambos (3 e 5), imprima “FizzBuzz”.
 
 2. Refatore o código abaixo, fazendo as alterações que julgar necessário.
+<br>
 <?
  if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
  header("Location: http://www.google.com");
@@ -33,7 +34,9 @@ de ambos (3 e 5), imprima “FizzBuzz”.
  exit();
  }
  <br>
-3. Refatore o código abaixo, fazendo as alterações que julgar necessário. <?php
+3. Refatore o código abaixo, fazendo as alterações que julgar necessário. 
+<br>
+<?php
 class MyUserClass
  {
  public function getUserList()
@@ -48,10 +51,17 @@ class MyUserClass
  }
  <br>
 4. Desenvolva uma API Rest para um sistema gerenciador de tarefas (inclusão/alteração/exclusão). As tarefas consistem em título e descrição, ordenadas por prioridade.
+<br>
 Desenvolver utilizando:
+<br>
 • Linguagem PHP (ou framework CakePHP);
+<br>
 • Banco de dados MySQL;
+<br>
 Diferenciais:
+<br>
 • Criação de interface para visualização da lista de tarefas;
+<br>
 • Interface com drag and drop;
+<br>
 • Interface responsiva (desktop e mobile);
